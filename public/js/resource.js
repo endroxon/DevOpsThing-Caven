@@ -24,7 +24,7 @@ function addResource() {
             document.getElementById("location").value = "";
             document.getElementById("description").value = "";
             document.getElementById("owner").value = "";
-            window.location.href = 'index.html';
+            window.location.href = 'movie.html';
         }
         else {
             document.getElementById("message").innerHTML = 'Unable to add resource!';
@@ -98,7 +98,7 @@ function updateResource(id) {
                 jsonData.movies + '!';
             document.getElementById("editMessage").setAttribute("class",
                 "text-success");
-            window.location.href = 'index.html';
+            window.location.href = 'movie.html';
         }
         else {
             document.getElementById("editMessage").innerHTML = 'Unable to edit resource!';
@@ -116,7 +116,7 @@ function deleteResource(selectedId) {
     request.onload = function () {
         response = JSON.parse(request.responseText);
         if (response.message == "Resource deleted successfully!") {
-            window.location.href = 'index.html';
+            window.location.href = 'movie.html';
         }
         else {
             alert('Unable to delete resource!');
