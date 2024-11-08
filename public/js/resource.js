@@ -1,4 +1,4 @@
-function addResource() {
+function addMovie() {
     var response = "";
     var jsonData = new Object();
     jsonData.movies = document.getElementById("movies").value;
@@ -11,7 +11,7 @@ function addResource() {
         return;
     }
     var request = new XMLHttpRequest();
-    request.open("POST", "/add-resource", true);
+    request.open("POST", "/add-movie", true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.onload = function () {
         response = JSON.parse(request.responseText);
@@ -27,7 +27,7 @@ function addResource() {
             window.location.href = 'movie.html';
         }
         else {
-            document.getElementById("message").innerHTML = 'Unable to add resource!';
+            document.getElementById("message").innerHTML = 'Unable to add movie!';
             document.getElementById("message").setAttribute("class", "text-danger");
             document.getElementById("message").setAttribute("class", "text-danger");
         }
@@ -35,10 +35,10 @@ function addResource() {
     request.send(JSON.stringify(jsonData));
 }
 
-function viewResources() {
+function viewMovie() {
     var response = '';
     var request = new XMLHttpRequest();
-    request.open('GET', '/view-resources', true);
+    request.open('GET', '/view-movie', true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.onload = function () {
         response = JSON.parse(request.responseText);
@@ -46,12 +46,12 @@ function viewResources() {
         for (var i = 0; i < response.length; i++) {
             html += '<tr>' +
                 '<td>' + (i + 1) + '</td>' +
-                '<td>' + response[i].movies + '</td>' +
+                '<td>' + response[i].movie + '</td>' +
                 '<td>' + response[i].location + '</td>' +
                 '<td>' + response[i].description + '</td>' +
                 '<td>' + response[i].owner + '</td>' +
                 '<td>' +
-                '<button type="button" class="btn btn-warning" onclick = "editResource(\'' + JSON.stringify(response[i]).replaceAll('\"', '&quot;') + '\')">Edit </button> ' + '<button type="button" class="btn btn-danger" onclick = "deleteResource(' + response[i].id + ')" > Delete</button > ' + '</td>' + '</tr>'
+                '<button type="button" class="btn btn-warning" onclick = "editMovie(\'' + JSON.stringify(response[i]).replaceAll('\"', '&quot;') + '\')">Edit </button> ' + '<button type="button" class="btn btn-danger" onclick = "deleteMovie(' + response[i].id + ')" > Delete</button > ' + '</td>' + '</tr>'
         }
         document.getElementById('tableContent').innerHTML = html;
     };
@@ -59,19 +59,19 @@ function viewResources() {
     request.send();
 }
 
-function editResource(data) {
+function editMovie(data) {
     var selectedResource = JSON.parse(data);
 
-    document.getElementById("editName").value = selectedResource.movies;
+    document.getElementById("editName").value = selectedResource.movie;
     document.getElementById("editLocation").value = selectedResource.location;
     document.getElementById("editDescription").value = selectedResource.description;
     document.getElementById("editOwner").value = selectedResource.owner;
 
-    document.getElementById("updateButton").setAttribute("onclick", 'updateResource("' + selectedResource.id + '")');
+    document.getElementById("updateButton").setAttribute("onclick", 'updateMovie("' + selectedResource.id + '")');
     $('#editResourceModal').modal('show');
 }
 
-function updateResource(id) {
+function updateMovie(id) {
     console.log(id)
     var response = "";
 
@@ -88,7 +88,7 @@ function updateResource(id) {
     }
 
     var request = new XMLHttpRequest();
-    request.open("PUT", "/edit-resource/" + id, true);
+    request.open("PUT", "/edit-movie/" + id, true);
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = function () {
@@ -108,10 +108,10 @@ function updateResource(id) {
     request.send(JSON.stringify(jsonData));
 }
 
-function deleteResource(selectedId) {
+function deleteMovie(selectedId) {
     var response = "";
     var request = new XMLHttpRequest();
-    request.open("DELETE", "/delete-resource/" + selectedId, true);
+    request.open("DELETE", "/delete-movie/" + selectedId, true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.onload = function () {
         response = JSON.parse(request.responseText);

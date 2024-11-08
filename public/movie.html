@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body onload="viewResources()">
+<body onload="viewMovie()">
     <div class="container mt-5">
         <div class="row justify-content-center">
             <img src="images/logo.png">
@@ -34,7 +34,7 @@
                                 <th>Movies</th>
                                 <th>Location</th>
                                 <th>Description</th>
-                                <th>Owner</th>
+                                <th>Movie Owner Email</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -60,11 +60,11 @@
                     <form>
                         <div class="form-group">
                             <label for="movies">Resource Movies</label>
-                            <input type="text" class="form-control" id="movies" placeholder="Enter resource Movies">
+                            <input type="text" class="form-control" id="movies" placeholder="Enter Name of Movies">
                         </div>
                         <div class="form-group">
                             <label for="location">Location</label>
-                            <input type="text" class="form-control" id="location" placeholder="Enter resource location">
+                            <input type="text" class="form-control" id="location" placeholder="Enter Movie location">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
@@ -72,15 +72,15 @@
                                 placeholder="Enter short description">
                         </div>
                         <div class="form-group">
-                            <label for="description">Owner</label>
-                            <input type="text" class="form-control" id="owner" placeholder="Enter resource owner">
+                            <label for="description">Movie Owner Email</label>
+                            <input type="text" class="form-control" id="owner" placeholder="Enter Email Owner">
                         </div>
                         <p align="right" id="message" class=""></p>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data- dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="addResource()">Add
+                    <button type="button" class="btn btn-primary" onclick="addMovie()">Add
                         New Resource</button>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editResourceModalLabel">Edit Resource</h5>
+                    <h5 class="modal-title" id="editResourceModalLabel">Edit Movie</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="updateButton" onclick="">Update Resource</button>
+                    <button type="button" class="btn btn-primary" id="updateButton" onclick="">Update Submission</button>
                 </div>
             </div>
         </div>
