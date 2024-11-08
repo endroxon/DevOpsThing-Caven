@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 d6e25c9958dbdd89c3dc70cc4d18211de79f42d6 endroxon <mycaven6804@hotmail.com> 1730257769 +0800	branch: Created from main
+d6e25c9958dbdd89c3dc70cc4d18211de79f42d6 04ce9a508b089e0a3bce467b9115c18b548dc574 endroxon <mycaven6804@hotmail.com> 1730258390 +0800	commit: Implemented the backend for modify-resources
+04ce9a508b089e0a3bce467b9115c18b548dc574 c0a40c99c96fdc4da736704be6d06384b494f045 endroxon <mycaven6804@hotmail.com> 1730258989 +0800	commit: Implemented the frontend for modify-resource

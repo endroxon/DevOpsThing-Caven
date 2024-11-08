@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 b6b665d648599b80b9826a69eaa44f1024780f96 endroxon <mycaven6804@hotmail.com> 1729757325 +0800	branch: Created from main
+b6b665d648599b80b9826a69eaa44f1024780f96 f482d7ade652411062caf6d85756727628b437fe endroxon <mycaven6804@hotmail.com> 1729758367 +0800	commit: Implemented the backend for add-resource
+f482d7ade652411062caf6d85756727628b437fe 689bb855840b04f237b0cbabe5e3c6df30012212 endroxon <mycaven6804@hotmail.com> 1729759853 +0800	commit: Implemented the frontend for add-resource
+689bb855840b04f237b0cbabe5e3c6df30012212 2d498a4f4b23dfcdb9d5e01a6f9241f5c69fb7cf endroxon <mycaven6804@hotmail.com> 1730251087 +0800	commit: Included stylesheet to set background of card-header to aliceblue, which

@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000 36d1ca7bd857c726d1b090f32321f3a85d624fb8 Myla Tee <Caven@LAPTOP-4BKVH269.(none)> 1729656156 +0800	clone: from https://github.com/endroxon/-resource-mgmt.git
+36d1ca7bd857c726d1b090f32321f3a85d624fb8 b6b665d648599b80b9826a69eaa44f1024780f96 endroxon <mycaven6804@hotmail.com> 1729657574 +0800	commit: Created the base Node.js project
+b6b665d648599b80b9826a69eaa44f1024780f96 b6b665d648599b80b9826a69eaa44f1024780f96 endroxon <mycaven6804@hotmail.com> 1729757448 +0800	checkout: moving from main to add-resource
+b6b665d648599b80b9826a69eaa44f1024780f96 b6b665d648599b80b9826a69eaa44f1024780f96 endroxon <mycaven6804@hotmail.com> 1729757604 +0800	checkout: moving from add-resource to add-resource
+b6b665d648599b80b9826a69eaa44f1024780f96 f482d7ade652411062caf6d85756727628b437fe endroxon <mycaven6804@hotmail.com> 1729758367 +0800	commit: Implemented the backend for add-resource
+f482d7ade652411062caf6d85756727628b437fe 689bb855840b04f237b0cbabe5e3c6df30012212 endroxon <mycaven6804@hotmail.com> 1729759853 +0800	commit: Implemented the frontend for add-resource
+689bb855840b04f237b0cbabe5e3c6df30012212 2d498a4f4b23dfcdb9d5e01a6f9241f5c69fb7cf endroxon <mycaven6804@hotmail.com> 1730251087 +0800	commit: Included stylesheet to set background of card-header to aliceblue, which
+2d498a4f4b23dfcdb9d5e01a6f9241f5c69fb7cf b6b665d648599b80b9826a69eaa44f1024780f96 endroxon <mycaven6804@hotmail.com> 1730257597 +0800	checkout: moving from add-resource to main
+b6b665d648599b80b9826a69eaa44f1024780f96 d6e25c9958dbdd89c3dc70cc4d18211de79f42d6 endroxon <mycaven6804@hotmail.com> 1730257642 +0800	pull: Fast-forward
+d6e25c9958dbdd89c3dc70cc4d18211de79f42d6 d6e25c9958dbdd89c3dc70cc4d18211de79f42d6 endroxon <mycaven6804@hotmail.com> 1730257787 +0800	checkout: moving from main to modify-resources
+d6e25c9958dbdd89c3dc70cc4d18211de79f42d6 04ce9a508b089e0a3bce467b9115c18b548dc574 endroxon <mycaven6804@hotmail.com> 1730258390 +0800	commit: Implemented the backend for modify-resources
+04ce9a508b089e0a3bce467b9115c18b548dc574 c0a40c99c96fdc4da736704be6d06384b494f045 endroxon <mycaven6804@hotmail.com> 1730258989 +0800	commit: Implemented the frontend for modify-resource
