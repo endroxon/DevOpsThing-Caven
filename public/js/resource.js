@@ -46,7 +46,7 @@ function viewMovie() {
         for (var i = 0; i < response.length; i++) {
             html += '<tr>' +
                 '<td>' + (i + 1) + '</td>' +
-                '<td>' + response[i].movie + '</td>' +
+                '<td>' + response[i].movies + '</td>' +
                 '<td>' + response[i].location + '</td>' +
                 '<td>' + response[i].description + '</td>' +
                 '<td>' + response[i].owner + '</td>' +
@@ -62,7 +62,7 @@ function viewMovie() {
 function editMovie(data) {
     var selectedResource = JSON.parse(data);
 
-    document.getElementById("editName").value = selectedResource.movie;
+    document.getElementById("editName").value = selectedResource.movies;
     document.getElementById("editLocation").value = selectedResource.location;
     document.getElementById("editDescription").value = selectedResource.description;
     document.getElementById("editOwner").value = selectedResource.owner;
