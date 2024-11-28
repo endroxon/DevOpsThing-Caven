@@ -34,6 +34,21 @@ describe('Resource API', () => {
                     done();
                 });
         });
+
+        it('blank test', (done) => {
+            chai.request(baseUrl)
+                .post('/add-movie')
+                .send({
+                    movie: '', location: '', description:
+                        '', owner: ''
+                })
+                .end((err, res) => {
+                    expect(res).to.have.status(500);
+                    expect(res.body.message).to.equal('Validation error');
+                    done();
+                });
+        });
+
         it('should add a new resource', (done) => {
             chai.request(baseUrl)
                 .post('/add-movie')
