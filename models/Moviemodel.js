@@ -1,6 +1,6 @@
 class Resource {
-    constructor(movies, location, description, owner) {
-    this.movies = movies;
+    constructor(movie, location, description, owner) {
+    this.movie = movie;
     this.location = location;
     this.description = description;
     this.owner = owner;
