@@ -24,6 +24,20 @@ async function createAccount(req, res) {
         const confirmpassword = req.body.confirmpassword;
         const email = req.body.email;
 
+        if (username && username.length < 3) {
+            return res.status(400).json({ message: 'Username must be at least 3 characters long' });
+        }
+
+         // Check if all fields are missing
+         if (!username && !password && !confirmpassword && !email) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+
+        if (!username) {
+            return res.status(500).json({ message: 'Username is required' });
+        }
+
         if (!email.includes('@') || !email.includes('.') || confirmpassword.length < 6) {
             return res.status(500).json({ message: 'Validation error' });
         }
@@ -40,64 +54,7 @@ async function createAccount(req, res) {
     }
 }
 
-async function viewAccounts(req, res) {
-    try {
-        const allAccounts = await readJSON('utils/accounts.json'); 
-        return res.status(201).json(allAccounts);
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
-    }
-}
-
-async function updateAccount(req, res) {
-    try {
-        const id = req.params.id;
-        const username = req.body.username;
-        const password = req.body.password;
-        const confirmpassword = req.body.confirmpassword;
-        const allAccounts = await readJSON('utils/accounts.json'); 
-        var modified = false;
-        for (var i = 0; i < allAccounts.length; i++) {
-            var curcurrAccount = allAccounts[i]; 
-            if (curcurrAccount.id == id) {
-                allAccounts[i].username = username;
-                allAccounts[i].password = password;
-                allAccounts[i].confirmpassword = confirmpassword;
-                modified = true;
-            }
-        }
-        if (modified) {
-            await fs.writeFile('utils/accounts.json', JSON.stringify(allAccounts), 'utf8'); 
-            return res.status(201).json({ message: 'Account modified successfully!' }); 
-        } else {
-            return res.status(500).json({ message: 'Error occurred, unable to modify account!' }); 
-        }
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
-    }
-}
-
-async function deleteAccount(req, res) {
-    try {
-        const id = req.params.id;
-        const allAccounts = await readJSON('utils/accounts.json'); 
-        var index = -1;
-        for (var i = 0; i < allAccounts.length; i++) {
-            var curcurrAccount = allAccounts[i]; 
-            if (curcurrAccount.id == id) index = i;
-        }
-        if (index != -1) {
-            allAccounts.splice(index, 1); 
-            await fs.writeFile('utils/accounts.json', JSON.stringify(allAccounts), 'utf8'); 
-            return res.status(201).json({ message: 'Account deleted successfully!' }); 
-        } else {
-            return res.status(500).json({ message: 'Error occurred, unable to delete account!' }); 
-        }
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
-    }
-}
 
 module.exports = {
-    readJSON, writeJSON, createAccount, viewAccounts, updateAccount, deleteAccount
+    readJSON, writeJSON, createAccount
 };
