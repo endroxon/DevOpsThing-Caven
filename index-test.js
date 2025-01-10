@@ -9,9 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./instrumented"));
 
-const { createAccount } = require('./utils/AccountUtil.js')
-app.post('/create-account', createAccount);
-
+const { createAccount, viewAccounts } = require('./utils/AccountUtil.js')
+app.post('/create-account', createAccount, viewAccounts);
+app.get('/view-accounts', viewAccounts);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/instrumented/" + startPage);
