@@ -11,6 +11,7 @@ function createAccount() {
         document.getElementById("message").setAttribute("class", "text-danger");
         return;
     }
+    
 
     var request = new XMLHttpRequest();
     request.open("POST", "/create-account", true);
@@ -58,60 +59,3 @@ function viewAccounts() {
     request.send();
 }
 
-function updateAccount(data) {
-    var selectedAccount = JSON.parse(data);
-
-    document.getElementById("Change Username").value = selectedAccount.username;
-    document.getElementById("Change Password").value = selectedAccount.password;
-    document.getElementById("Confirm Password").value = selectedAccount.confirmpassword;
-    document.getElementById("updateButton").setAttribute("onclick", 'updateAccountDetails("' + selectedAccount.id + '")');
-
-    $('#editAccountModal').modal('show');
-}
-
-function updateAccountDetails(id) {
-    console.log(id);
-    var response = "";
-    var jsonData = new Object();
-    jsonData.username = document.getElementById("Change Username").value;
-    jsonData.password = document.getElementById("Change Password").value;
-    jsonData.confirmpassword = document.getElementById("Confirm Password").value;
-    
-    if (jsonData.username == "" || jsonData.password == "" || jsonData.confirmpassword == "") {
-        document.getElementById("editMessage").innerHTML = 'All fields are required!';
-        document.getElementById("editMessage").setAttribute("class", "text-danger");
-        return;
-    }
-
-    var request = new XMLHttpRequest();
-    request.open("PUT", "/update-account/" + id, true);
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.onload = function () {
-        response = JSON.parse(request.responseText);
-        if (response.message == "Account modified successfully!") {
-            document.getElementById("editMessage").innerHTML = 'Edited Account: ' + jsonData.username + '!';
-            document.getElementById("editMessage").setAttribute("class", "text-success");
-            window.location.href = 'account.html';
-        } else {
-            document.getElementById("editMessage").innerHTML = 'Unable to edit account!';
-            document.getElementById("editMessage").setAttribute("class", "text-danger");
-        }
-    };
-    request.send(JSON.stringify(jsonData));
-}
-
-function deleteAccount(selectedId) {
-    var response = "";
-    var request = new XMLHttpRequest();
-    request.open("DELETE", "/delete-account/" + selectedId, true);
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.onload = function () {
-        response = JSON.parse(request.responseText);
-        if (response.message == "Account deleted successfully!") {
-            window.location.href = 'account.html';
-        } else {
-            alert('Unable to delete account!');
-        }
-    };
-    request.send();
-}
