@@ -17,44 +17,56 @@ async function writeJSON(object, filename) {
     } catch (err) { console.error(err); throw err; }
 }
 
+async function viewAccounts(req, res) {
+    try {
+        const allAccounts = await readJSON('utils/accounts.json'); 
+        return res.status(201).json(allAccounts);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
+
 async function createAccount(req, res) {
     try {
-        const username = req.body.username;
-        const password = req.body.password;
-        const confirmpassword = req.body.confirmpassword;
-        const email = req.body.email;
+        const { username, password, confirmpassword, email } = req.body;
 
-        if (username && username.length < 3) {
-            return res.status(400).json({ message: 'Username must be at least 3 characters long' });
-        }
-
-         // Check if all fields are missing
-         if (!username && !password && !confirmpassword && !email) {
+        
+        if (!username || !password || !confirmpassword || !email) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
-
-        if (!username) {
-            return res.status(500).json({ message: 'Username is required' });
+        
+        if (username.length < 3) {
+            return res.status(400).json({ message: 'Username must be at least 3 characters long' });
         }
 
-        if (!email.includes('@') || !email.includes('.') || confirmpassword.length < 6) {
-            return res.status(500).json({ message: 'Validation error' });
+        
+        if (!email.includes('@') || !email.includes('.')) {
+            return res.status(400).json({ message: 'Invalid email format' });
         }
+
+        if (password.length < 6) {
+            return res.status(400).json({ message: 'Password must be at least 6 characters long' });
+        }
+
+        
         if (password !== confirmpassword) {
             return res.status(400).json({ message: 'Passwords do not match' });
-        } else {
-            // Replace Resource with Account
-            const newAccount = new Account(username, password, confirmpassword, email); 
-            const updatedAccounts = await writeJSON(newAccount, 'utils/accounts.json');
-            return res.status(201).json(updatedAccounts);
         }
+        
+
+      
+        const newAccount = new Account(username, password, confirmpassword, email);
+        const updatedAccounts = await writeJSON(newAccount, 'utils/accounts.json');
+        return res.status(201).json(updatedAccounts);
+
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ message: error.message });
     }
 }
 
 
 module.exports = {
-    readJSON, writeJSON, createAccount
+    readJSON, writeJSON, createAccount, viewAccounts
 };

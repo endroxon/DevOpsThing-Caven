@@ -9,4 +9,4 @@ spec: # defines the desired state of the Service
     - protocol: TCP # standard protocol for most web applications
       port: 80  # exposes port 80, which is the default HTTP port
       targetPort: 5050 # specifies the port that the application listens on
-  type: LoadBalancer  # expose externally using a public IP
+
