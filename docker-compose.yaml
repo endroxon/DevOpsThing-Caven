@@ -5,4 +5,4 @@ services:
       dockerfile: Dockerfile
     image: cavendvops/rms-docker-img:latest
     ports:
-    - "8000:5054"
+    - "8000:5050"
