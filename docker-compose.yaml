@@ -1,0 +1,8 @@
+services:
+  build-rms:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cavendvops/rms-docker-img:latest
+    ports:
+    - "8000:5050"
