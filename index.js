@@ -9,8 +9,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("./public"));
 
-const { createAccount } = require('./utils/AccountUtil.js')
+const { createAccount, viewAccounts } = require('./utils/AccountUtil.js')
 app.post('/create-account', createAccount);
+
+app.get('/view-accounts', viewAccounts);
+
 
 
 app.get('/', (req, res) => {
