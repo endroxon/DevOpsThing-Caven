@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile 
-    image: cavendvops/rms-docker-img:V2
+    image: cavendvops/rms-docker-img:V4
     container_name: rms-docker-container
     ports:
       - "8000:5054" 
