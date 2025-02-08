@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1739020892578" clover="3.2.0">
-  <project timestamp="1739020892579" name="All files">
-    <metrics statements="38" coveredstatements="38" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4" elements="49" coveredelements="49" complexity="0" loc="38" ncloc="38" packages="1" files="1" classes="1"/>
-    <file name="accounts.js" path="C:\Users\Caven\Documents\DVOPS_Projects\DevOpsThing-Caven - part 3\public\js\accounts.js">
+
       <metrics statements="38" coveredstatements="38" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4"/>
       <line num="2" count="7" type="stmt"/>
       <line num="3" count="7" type="stmt"/>
@@ -39,7 +36,7 @@
       <line num="44" count="13" type="stmt"/>
       <line num="45" count="13" type="stmt"/>
       <line num="46" count="13" type="stmt"/>
-      <line num="47" count="909" type="stmt"/>
+
       <line num="57" count="13" type="stmt"/>
       <line num="59" count="13" type="stmt"/>
     </file>
